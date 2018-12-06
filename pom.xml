@@ -9,20 +9,13 @@
     <version>1.0-SNAPSHOT</version>
 
 
-
-
     <packaging>jar</packaging>
 
 
-
     <parent>
-
         <groupId>org.springframework.boot</groupId>
-
         <artifactId>spring-boot-starter-parent</artifactId>
-
         <version>LATEST</version>
-
     </parent>
 
 
@@ -30,48 +23,38 @@
     <dependencies>
 
         <dependency>
-
             <groupId>org.springframework.boot</groupId>
-
             <artifactId>spring-boot-starter-web</artifactId>
-
         </dependency>
 
         <dependency>
-
             <groupId>org.springframework.boot</groupId>
-
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-
         </dependency>
 
         <dependency>
-
             <groupId>org.springframework.boot</groupId>
-
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-
         </dependency>
 
         <dependency>
-
             <groupId>nz.net.ultraq.thymeleaf</groupId>
-
             <artifactId>thymeleaf-layout-dialect</artifactId>
-
         </dependency>
 
         <dependency>
-
             <groupId>javax.xml.bind</groupId>
-
             <artifactId>jaxb-api</artifactId>
-
             <version>2.3.0</version>
-
         </dependency>
 
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- These are in memory databases. We want to use MyySQL. -->
+        <!--<dependency>
 
             <groupId>org.mariadb.jdbc</groupId>
 
@@ -89,8 +72,7 @@
 
             <scope>runtime</scope>
 
-        </dependency>
-
+        </dependency>-->
     </dependencies>
 
 
@@ -98,19 +80,13 @@
     <build>
 
         <plugins>
-
             <plugin>
-
                 <groupId>org.springframework.boot</groupId>
-
                 <artifactId>spring-boot-maven-plugin</artifactId>
-
             </plugin>
-
         </plugins>
 
     </build>
-
 
 
 

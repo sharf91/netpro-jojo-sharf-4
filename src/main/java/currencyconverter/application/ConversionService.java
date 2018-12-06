@@ -1,5 +1,6 @@
 package currencyconverter.application;
 
+import currencyconverter.domain.ConversionRate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,7 +22,7 @@ public class ConversionService{
      * @param amount
      * @return convertedAmount
      */
-    public double getConversionRate(String fromCurrencyName, String toCurrencyName, double amount)
+    public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName, double amount)
     {
         return conversionRepo.getConversionRate(fromCurrencyName, toCurrencyName);
     }

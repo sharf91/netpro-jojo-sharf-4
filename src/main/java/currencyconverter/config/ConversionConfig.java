@@ -19,7 +19,6 @@ import org.thymeleaf.templatemode.TemplateMode;
 
 @EnableTransactionManagement
 
-
 @EnableWebMvc
 @Configuration
 public class ConversionConfig implements WebMvcConfigurer, ApplicationContextAware {

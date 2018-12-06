@@ -1,6 +1,6 @@
 package currencyconverter.repository;
 
-import domain.ConversionRate;
+import currencyconverter.domain.ConversionRate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;

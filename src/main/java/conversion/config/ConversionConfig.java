@@ -1,4 +1,4 @@
-package config;
+package conversion.config;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.ApplicationContext;
@@ -18,7 +18,6 @@ import org.thymeleaf.templatemode.TemplateMode;
 
 
 @EnableTransactionManagement
-
 
 @EnableWebMvc
 @Configuration
@@ -45,13 +44,11 @@ public class ConversionConfig implements WebMvcConfigurer, ApplicationContextAwa
         viewResolver.setTemplateEngine(templateEngine());
 
         return viewResolver;
-
     }
 
 
 
     @Bean(name = "conversionTemplateEngine")
-
     public SpringTemplateEngine templateEngine() {
 
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
@@ -60,7 +57,6 @@ public class ConversionConfig implements WebMvcConfigurer, ApplicationContextAwa
         templateEngine.addDialect(new LayoutDialect());
 
         return templateEngine;
-
     }
 
 
@@ -76,7 +72,6 @@ public class ConversionConfig implements WebMvcConfigurer, ApplicationContextAwa
         templateResolver.setCacheable(true);
 
         return templateResolver;
-
     }
 
 

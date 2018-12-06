@@ -1,4 +1,4 @@
-package currencyconverter.config;
+package conversion.config;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.ApplicationContext;

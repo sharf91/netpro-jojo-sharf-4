@@ -1,4 +1,4 @@
-package currencyconverter.util;
+package conversion.util;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

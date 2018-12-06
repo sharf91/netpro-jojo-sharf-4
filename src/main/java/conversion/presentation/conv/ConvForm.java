@@ -1,4 +1,4 @@
-package currencyconverter.conv;
+package conversion.presentation.conv;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

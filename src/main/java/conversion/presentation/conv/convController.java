@@ -1,7 +1,7 @@
-package currencyconverter.conv;
+package conversion.presentation.conv;
 
 
-import currencyconverter.application.ConversionService;
+import conversion.application.ConverterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ public class convController
     private static final String CONVERSION_FORM_OBJ_NAME = "doConversion";
 
     @Autowired
-    private ConversionService service;
+    private ConverterService service;
 
     @GetMapping(DEFAULT_PAGE_URL)
     public String showDefaultView()

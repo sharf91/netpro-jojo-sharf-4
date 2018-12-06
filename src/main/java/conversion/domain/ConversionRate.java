@@ -1,4 +1,4 @@
-package currencyconverter.domain;
+package conversion.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.PositiveOrZero;

@@ -1,14 +1,11 @@
-package application;
+package currencyconverter.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import repository.ConversionRepository;
+import currencyconverter.repository.ConversionRepository;
 
 @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
 @Service

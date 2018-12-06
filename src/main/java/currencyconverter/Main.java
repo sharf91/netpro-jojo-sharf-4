@@ -1,15 +1,16 @@
+package currencyconverter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * Starts the application
+ * Starts the currencyconverter.application
  */
 @SpringBootApplication
 public class Main {
     /**
-     * Starts the application.
+     * Starts the currencyconverter.application.
      */
     public static void main(String[] args)
     {

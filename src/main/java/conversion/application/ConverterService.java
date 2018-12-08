@@ -20,10 +20,9 @@ public class ConverterService {
      * Takes an amount of a currency and returns the amount in another currency
      * @param fromCurrencyName
      * @param toCurrencyName
-     * @param amount
      * @return convertedAmount
      */
-    public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName, double amount)
+    public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName)
     {
         return  conversionRepo.findByFromCurrAndToCurr(fromCurrencyName, toCurrencyName);
     }

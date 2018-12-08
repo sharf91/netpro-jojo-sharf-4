@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Hello admin! You have all the power here.</p>
+    <form th:action="@{/admin/change-rate}" th:object="${adminConvForm}" method="post">
+        <label for="from-currency">From currency: </label>
+        <input type="text" th:field="*{fromCurr}" id="from-currency" />
+
+        <label for="to-currency">To Currency: </label>
+        <input type="text" th:field="*{toCurr}" id="to-currency" />
+
+        <label for="set-rate">Set rate: </label>
+        <input type="text" th:field="*{rate}" id="set-rate" />
+
+        <input type="submit" value="Change Rate" />
+    </form>
+</body>
+</html>

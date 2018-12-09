@@ -24,7 +24,18 @@ public class ConverterService {
      */
     public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName)
     {
-        return  conversionRepo.findByFromCurrAndToCurr(fromCurrencyName, toCurrencyName);
+        return conversionRepo.findByFromCurrAndToCurr(fromCurrencyName, toCurrencyName);
     }
 
+    @Transactional
+    public void saveConversionRate(String fromCurr, String toCurr, Double rate) {
+        ConversionRate convRate = conversionRepo.findByFromCurrAndToCurr(fromCurr, toCurr);
+
+        if (convRate == null)
+            convRate = new ConversionRate(fromCurr, toCurr, rate);
+        else
+            convRate.setRate(rate);
+
+        conversionRepo.save(convRate);
+    }
 }

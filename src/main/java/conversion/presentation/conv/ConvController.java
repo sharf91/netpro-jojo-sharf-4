@@ -58,13 +58,17 @@ public class ConvController
     @PostMapping("/" + CHANGE_RATES_URL)
     public String changeRate(@Valid AdminConvForm adminForm, BindingResult bindingResult, Model model)
     {
-        /*if (bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return CHANGE_RATES_URL;
-        }*/
+        }
 
-        //ConversionRate convRate = service.getConversionRate(convForm.getFromCurrency(), convForm.getToCurrency());
-        //System.out.println(adminForm);
-        //model.addAttribute(CONVERSION_FORM_OBJ_NAME, adminForm);
+        service.saveConversionRate(adminForm.getFromCurr(), adminForm.getToCurr(), adminForm.getRate());
+        System.out.println("Saved to db.");
+        return CHANGE_RATES_URL;
+    }
+
+    @GetMapping("/" + CHANGE_RATES_URL)
+    public String showwAdminView(@Valid AdminConvForm adminForm) {
         return CHANGE_RATES_URL;
     }
 

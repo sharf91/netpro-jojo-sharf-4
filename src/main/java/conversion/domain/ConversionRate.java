@@ -12,7 +12,7 @@ public class ConversionRate {
     private Long id;
     private String fromCurr;
     private String toCurr;
-    private double rate;
+    private Double rate;
 
     protected ConversionRate() {
         // Required by JPA
@@ -21,6 +21,11 @@ public class ConversionRate {
     public ConversionRate(String fromCurr, String toCurr) {
         this.fromCurr = fromCurr;
         this.toCurr = toCurr;
+    }
+
+    public ConversionRate(String fromCurr, String toCurr, Double rate) {
+        this(fromCurr, toCurr);
+        this.rate = rate;
     }
 
     public Long getId() {
@@ -35,8 +40,16 @@ public class ConversionRate {
     }
 
     @PositiveOrZero
-    public double getRate() {
+    public Double getRate() {
         return rate;
+    }
+
+    public void setRate(Double rate) {
+        this.rate = rate;
+    }
+
+    public Double getConvertedAmount(Double amount) {
+        return amount*rate;
     }
 
     public String toString() {

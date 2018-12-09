@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Converter | Admin</title>
 </head>
 <body>
     <p>Hello admin! You have all the power here.</p>
-    <form th:action="@{/admin/change-rate}" th:object="${adminConvForm}" method="post">
+    <form th:action="@{/admin/change-rates}" th:object="${adminConvForm}" method="post">
         <label for="from-currency">From currency: </label>
         <input type="text" th:field="*{fromCurr}" id="from-currency" />
 

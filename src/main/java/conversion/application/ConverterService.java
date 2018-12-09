@@ -20,12 +20,22 @@ public class ConverterService {
      * Takes an amount of a currency and returns the amount in another currency
      * @param fromCurrencyName
      * @param toCurrencyName
-     * @param amount
      * @return convertedAmount
      */
-    public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName, double amount)
+    public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName)
     {
-        return  conversionRepo.findByFromCurrAndToCurr(fromCurrencyName, toCurrencyName);
+        return conversionRepo.findByFromCurrAndToCurr(fromCurrencyName, toCurrencyName);
     }
 
+    @Transactional
+    public void saveConversionRate(String fromCurr, String toCurr, Double rate) {
+        ConversionRate convRate = conversionRepo.findByFromCurrAndToCurr(fromCurr, toCurr);
+
+        if (convRate == null)
+            convRate = new ConversionRate(fromCurr, toCurr, rate);
+        else
+            convRate.setRate(rate);
+
+        conversionRepo.save(convRate);
+    }
 }

@@ -1,7 +1,10 @@
 package conversion.application;
 
+import conversion.domain.ConversionCount;
 import conversion.domain.ConversionRate;
 
+import conversion.domain.IllegalConversionException;
+import conversion.repository.CountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -16,19 +19,27 @@ public class ConverterService {
     @Autowired
     private ConversionRepository conversionRepo;
 
-    /**
-     * Takes an amount of a currency and returns the amount in another currency
-     * @param fromCurrencyName
-     * @param toCurrencyName
-     * @return convertedAmount
-     */
-    public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName)
-    {
-        return conversionRepo.findByFromCurrAndToCurr(fromCurrencyName, toCurrencyName);
+    @Autowired
+    private CountRepository countRepo;
+
+    @Transactional
+    public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName) throws IllegalConversionException {
+        ConversionRate convRate = conversionRepo.findByFromCurrAndToCurr(fromCurrencyName, toCurrencyName);
+        if (convRate == null) {
+            throw new IllegalConversionException("Conversion does not exist.");
+        }
+
+        ConversionCount convCount = countRepo.findByConvRate_Id(convRate.getId());
+        if (convCount == null)
+            convCount = new ConversionCount(convRate);
+
+        convCount.setCount(convCount.getCount() + 1);
+        countRepo.save(convCount);
+        return convRate;
     }
 
     @Transactional
-    public void saveConversionRate(String fromCurr, String toCurr, Double rate) {
+    public void saveConversionRate(String fromCurr, String toCurr, Double rate) throws IllegalConversionException {
         ConversionRate convRate = conversionRepo.findByFromCurrAndToCurr(fromCurr, toCurr);
 
         if (convRate == null)

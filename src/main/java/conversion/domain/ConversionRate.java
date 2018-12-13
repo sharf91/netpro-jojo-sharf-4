@@ -54,7 +54,7 @@ public class ConversionRate {
 
     public String toString() {
         return String.format(
-                "ConversionRate[id=%d, fromCurr='%s', toCurr='%s', rate='%d']",
+                "ConversionRate[id=%d, fromCurr='%s', toCurr='%s', rate='%f']",
                 id, fromCurr, toCurr, rate);
     }
 }

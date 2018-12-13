@@ -90,7 +90,6 @@ public class ConvController
         ConversionRate convRate = service.getConversionRate(convForm.getFromCurrency(), convForm.getToCurrency());
         System.out.println(convRate);
         model.addAttribute(CONVERSION_FORM_OBJ_NAME, convRate);
-        return DO_CONVERSION_URL;
+        return CONVERSION_PAGE_URL;
     }
-
 }

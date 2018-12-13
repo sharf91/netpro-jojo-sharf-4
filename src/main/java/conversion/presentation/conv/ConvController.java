@@ -93,5 +93,4 @@ public class ConvController
         model.addAttribute(CONVERSION_FORM_OBJ_NAME, convRate);
         return CONVERSION_PAGE_URL;
     }
-
 }

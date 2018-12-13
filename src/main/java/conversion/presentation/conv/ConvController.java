@@ -84,6 +84,7 @@ public class ConvController
     public String doConversion(@Valid ConvForm convForm, BindingResult bindingResult, Model model)
     {
         if (bindingResult.hasErrors()) {
+            System.out.println("hello");
             return CONVERSION_PAGE_URL;
         }
 

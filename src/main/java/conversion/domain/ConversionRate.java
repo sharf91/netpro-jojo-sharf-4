@@ -18,12 +18,14 @@ public class ConversionRate {
         // Required by JPA
     }
 
-    public ConversionRate(String fromCurr, String toCurr) {
+    public ConversionRate(String fromCurr, String toCurr) throws IllegalConversionException{
+        if (fromCurr.equals(toCurr))
+            throw new IllegalConversionException("Cannot convert from " + fromCurr + " to " + toCurr);
         this.fromCurr = fromCurr;
         this.toCurr = toCurr;
     }
 
-    public ConversionRate(String fromCurr, String toCurr, Double rate) {
+    public ConversionRate(String fromCurr, String toCurr, Double rate) throws IllegalConversionException {
         this(fromCurr, toCurr);
         this.rate = rate;
     }

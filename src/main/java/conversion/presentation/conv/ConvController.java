@@ -3,6 +3,7 @@ package conversion.presentation.conv;
 
 import conversion.application.ConverterService;
 import conversion.domain.ConversionRate;
+import conversion.domain.IllegalConversionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -57,7 +58,7 @@ public class ConvController
      */
     @PostMapping("/" + CHANGE_RATES_URL)
     public String changeRate(@Valid AdminConvForm adminForm, BindingResult bindingResult, Model model)
-    {
+            throws IllegalConversionException {
         if (bindingResult.hasErrors()) {
             return CHANGE_RATES_URL;
         }
@@ -82,14 +83,12 @@ public class ConvController
      */
     @PostMapping("/" + DO_CONVERSION_URL)
     public String doConversion(@Valid ConvForm convForm, BindingResult bindingResult, Model model)
-    {
+            throws IllegalConversionException {
         if (bindingResult.hasErrors()) {
-            System.out.println("hello");
             return CONVERSION_PAGE_URL;
         }
 
         ConversionRate convRate = service.getConversionRate(convForm.getFromCurrency(), convForm.getToCurrency());
-        System.out.println(convRate);
         model.addAttribute(CONVERSION_FORM_OBJ_NAME, convRate);
         return CONVERSION_PAGE_URL;
     }

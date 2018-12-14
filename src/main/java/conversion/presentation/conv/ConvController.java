@@ -26,6 +26,7 @@ public class ConvController
     static final String CHANGE_RATES_URL = ADMIN_PAGE_URL + "/change-rates";
 
     private static final String CONVERSION_FORM_OBJ_NAME = "conversionRate";
+    //private static final String CONVERSION_OBJ_NAME = "conversionResult";
     private static final String CHANGERATE_FORM_OBJ_NAME = "";
     @Autowired
     private ConverterService service;

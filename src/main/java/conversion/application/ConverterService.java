@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import conversion.repository.ConversionRepository;
 
+import java.util.List;
+
 @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
 @Service
 public class ConverterService {
@@ -48,5 +50,10 @@ public class ConverterService {
             convRate.setRate(rate);
 
         conversionRepo.save(convRate);
+    }
+
+    @Transactional
+    public List<ConversionCount> getConversionsAndCount() {
+        return countRepo.findAll();
     }
 }

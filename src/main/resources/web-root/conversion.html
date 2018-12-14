@@ -15,8 +15,8 @@
 
     <label for="to-currency">To Currency: </label>
     <select name="To Currency" th:field="*{toCurrency}" id="to-currency">
-        <option value="SEK">SEK</option>
         <option value="USD">USD</option>
+        <option value="SEK">SEK</option>
     </select>
 
     <label for="amount">Amount: </label>
@@ -24,7 +24,7 @@
 
     <input type="submit" value="Do Conversion" />
 
-    <label for="amount">Amount: </label>
+    <p>Result: <span th:text="${conversionRate?.getConvertedAmount(convForm.amount)}"></span> <span th:text="*{toCurrency}"></span></p>
 
 
 </form>

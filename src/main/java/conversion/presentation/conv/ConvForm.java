@@ -38,7 +38,8 @@ public class ConvForm {
         return fromCurrency;
     }
 
-    public void setFromCurrency(String fromCurrency) {
+    public void setFromCurrency(String fromCurrency)
+    {
         this.fromCurrency = fromCurrency.toUpperCase();
     }
 

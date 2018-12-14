@@ -30,6 +30,9 @@ public class ConvController
 
     private static final String CONVERSION_FORM_OBJ_NAME = "conversionRate";
 
+    private static final String CONVERSION_OBJ_NAME = "conversionResult";
+    private static final String CHANGERATE_FORM_OBJ_NAME = "";
+
     @Autowired
     private ConverterService service;
 

@@ -19,3 +19,14 @@ INSERT INTO conversion_rate (from_curr, rate, to_curr) VALUES
 ("DKK", 0.15, "USD"),
 ("DKK", 0.13, "EUR" ),
 ("DKK", 1.30, "NOK");
+
+INSERT INTO conversion_count (count, conversion_id) VALUES
+(5, 2),
+(7, 1),
+(100, 7),
+(56, 5),
+(1, 8),
+(23, 6),
+(69, 4),
+(74, 10),
+(42, 3);

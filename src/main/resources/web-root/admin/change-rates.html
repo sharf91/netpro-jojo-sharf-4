@@ -18,5 +18,15 @@
 
         <input type="submit" value="Change Rate" />
     </form>
+
+    <th:forEach items="${conversions}" var="conversionCount">
+        <div>
+            <span th:text="${conversionCount?.convRate?.fromCurr}"></span>
+            <span th:text="${conversionCount?.convRate?.toCurr}"></span>
+            <span th:text=${conversionCount?.count}></span>
+        </div>
+    </th:forEach>
+
+
 </body>
 </html>

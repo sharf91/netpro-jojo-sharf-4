@@ -30,7 +30,6 @@ public class ConvController
 
     private static final String CONVERSION_FORM_OBJ_NAME = "conversionRate";
 
-    private static final String CONVERSION_OBJ_NAME = "conversionResult";
     private static final String CHANGERATE_FORM_OBJ_NAME = "";
 
     @Autowired
@@ -57,10 +56,9 @@ public class ConvController
     }
 
     @GetMapping("/" + CHANGE_RATES_URL)
-    public String showwAdminView(AdminConvForm adminForm, Model model) {
-        ArrayList<ConversionCount> conversions = (ArrayList<ConversionCount>) service.getConversionsAndCount();
+    public String showAdminView(AdminConvForm adminForm, Model model) {
+        List<ConversionCount> conversions = (ArrayList<ConversionCount>) service.getConversionsAndCount();
         model.addAttribute("conversions", conversions);
-
         return CHANGE_RATES_URL;
     }
 

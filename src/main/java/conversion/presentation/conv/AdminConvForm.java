@@ -29,7 +29,7 @@ public class AdminConvForm {
     }
 
     public void setFromCurr(String fromCurr) {
-        this.fromCurr = fromCurr;
+        this.fromCurr = fromCurr.toUpperCase();
     }
 
     public void setRate(double rate) {
@@ -37,7 +37,7 @@ public class AdminConvForm {
     }
 
     public void setToCurr(String toCurr) {
-        this.toCurr = toCurr;
+        this.toCurr = toCurr.toUpperCase();
     }
 
     @Override

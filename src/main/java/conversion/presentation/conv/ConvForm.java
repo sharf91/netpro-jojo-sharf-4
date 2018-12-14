@@ -31,7 +31,7 @@ public class ConvForm {
     }
 
     public void setToCurrency(String toCurrency) {
-        this.toCurrency = toCurrency;
+        this.toCurrency = toCurrency.toUpperCase();
     }
 
     public String getFromCurrency() {
@@ -39,7 +39,7 @@ public class ConvForm {
     }
 
     public void setFromCurrency(String fromCurrency) {
-        this.fromCurrency = fromCurrency;
+        this.fromCurrency = fromCurrency.toUpperCase();
     }
 
     @Override

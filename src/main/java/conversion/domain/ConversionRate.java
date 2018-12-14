@@ -19,10 +19,12 @@ public class ConversionRate {
     }
 
     public ConversionRate(String fromCurr, String toCurr) throws IllegalConversionException{
-        if (fromCurr.equals(toCurr))
+        if (fromCurr.equals(toCurr)) {
             throw new IllegalConversionException("Cannot convert from " + fromCurr + " to " + toCurr);
-        this.fromCurr = fromCurr;
-        this.toCurr = toCurr;
+        }
+
+        this.fromCurr = fromCurr.toUpperCase();
+        this.toCurr = toCurr.toUpperCase();
     }
 
     public ConversionRate(String fromCurr, String toCurr, Double rate) throws IllegalConversionException {

@@ -26,7 +26,7 @@ public class ConverterService {
     public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName) throws IllegalConversionException {
         ConversionRate convRate = conversionRepo.findByFromCurrAndToCurr(fromCurrencyName, toCurrencyName);
         if (convRate == null) {
-            throw new IllegalConversionException("Conversion does not exist.");
+            throw new IllegalConversionException("Conversion could not be found.");
         }
 
         ConversionCount convCount = countRepo.findByConvRate_Id(convRate.getId());

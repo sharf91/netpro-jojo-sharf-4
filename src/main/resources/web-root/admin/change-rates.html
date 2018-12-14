@@ -18,13 +18,13 @@
 
         <input type="submit" value="Change Rate" />
     </form>
-
-    <H2>Conversions made:</H2>
-
+    <br>
+    <div>Conversions made:</div>
     <tr th:each="conversionCount : ${conversions}">
         <td><span th:text="${conversionCount.convRate.fromCurr}"></span></td>
         <td> - <span th:text="${conversionCount.convRate.toCurr}"></span></td>
         <td>: <span th:text=${conversionCount.count}></span></td>
+        <br>
     </tr>
 
 

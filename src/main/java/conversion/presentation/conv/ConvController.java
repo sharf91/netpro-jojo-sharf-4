@@ -2,6 +2,7 @@ package conversion.presentation.conv;
 
 
 import conversion.application.ConverterService;
+import conversion.domain.ConversionCount;
 import conversion.domain.ConversionRate;
 import conversion.domain.IllegalConversionException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @Scope("session")
@@ -26,7 +29,7 @@ public class ConvController
     static final String CHANGE_RATES_URL = ADMIN_PAGE_URL + "/change-rates";
 
     private static final String CONVERSION_FORM_OBJ_NAME = "conversionRate";
-    private static final String CHANGERATE_FORM_OBJ_NAME = "";
+
     @Autowired
     private ConverterService service;
 
@@ -39,12 +42,22 @@ public class ConvController
     @GetMapping("/" + CONVERSION_PAGE_URL)
     public String showCurrencyConversionView(ConvForm createConvForm)
     {
+
         return CONVERSION_PAGE_URL;
     }
 
+
     @GetMapping("/" + ADMIN_PAGE_URL)
-    public String showAdminChangeCurrencyView(AdminConvForm adminConvForm)
+    public String showAdminChangeCurrencyView()
     {
+        return "redirect:" + CHANGE_RATES_URL;
+    }
+
+    @GetMapping("/" + CHANGE_RATES_URL)
+    public String showwAdminView(AdminConvForm adminForm, Model model) {
+        ArrayList<ConversionCount> conversions = (ArrayList<ConversionCount>) service.getConversionsAndCount();
+        model.addAttribute("conversions", conversions);
+
         return CHANGE_RATES_URL;
     }
 
@@ -65,11 +78,6 @@ public class ConvController
 
         service.saveConversionRate(adminForm.getFromCurr(), adminForm.getToCurr(), adminForm.getRate());
         System.out.println("Saved to db.");
-        return CHANGE_RATES_URL;
-    }
-
-    @GetMapping("/" + CHANGE_RATES_URL)
-    public String showwAdminView(@Valid AdminConvForm adminForm) {
         return CHANGE_RATES_URL;
     }
 

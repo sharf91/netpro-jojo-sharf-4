@@ -79,7 +79,7 @@ public class ConvController
 
         service.saveConversionRate(adminForm.getFromCurr(), adminForm.getToCurr(), adminForm.getRate());
         System.out.println("Saved to db.");
-        return CHANGE_RATES_URL;
+        return showAdminView(adminForm,model);
     }
 
     /**

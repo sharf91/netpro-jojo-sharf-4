@@ -28,8 +28,14 @@
 
     <input type="submit" value="Do Conversion" />
 
-    <p>Result: <span th:text="${conversionRate?.getConvertedAmount(convForm.amount)}"></span> <span th:text="*{toCurrency}"></span></p>
-
+    <p>Result:
+        <span th:text="${conversionRate?.getConvertedAmount(convForm.amount)}"></span>
+        <span th:if="${!#fields.hasErrors('amount')}" th:text="*{toCurrency}"></span>
+    </p>
+    <span class="error"
+          th:if="${#fields.hasErrors('amount')}"
+          th:errors="*{amount}">
+    </span>
 
 </form>
 </body>

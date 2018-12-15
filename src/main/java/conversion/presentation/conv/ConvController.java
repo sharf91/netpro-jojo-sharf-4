@@ -59,6 +59,11 @@ public class ConvController
     public String showAdminView(AdminConvForm adminForm, Model model) {
         List<ConversionCount> conversions = (ArrayList<ConversionCount>) service.getConversionsAndCount();
         model.addAttribute("conversions", conversions);
+        int convs = 0;
+        for (ConversionCount conv : conversions)
+            convs += conv.getCount();
+
+        model.addAttribute("convs", convs);
         return CHANGE_RATES_URL;
     }
 

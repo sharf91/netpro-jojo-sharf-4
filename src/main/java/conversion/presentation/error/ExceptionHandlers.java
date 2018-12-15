@@ -34,9 +34,12 @@ public class ExceptionHandlers implements ErrorController {
         if (ex.getMessage().toUpperCase().contains("FOUND")) {
             model.addAttribute(ERROR_TYPE, ERROR_CONV_FAILED);
             model.addAttribute(ERROR_INFO, "Could not find this conversion, try again.");
-        } else if (ex.getMessage().toUpperCase().contains("CONVERT")) {
+        }else if (ex.getMessage().toUpperCase().contains("TRIED")) {
             model.addAttribute(ERROR_TYPE, ERROR_CONV_FAILED);
-            model.addAttribute(ERROR_INFO, "Cannot convert from the specified currency to the same currency.");
+            model.addAttribute(ERROR_INFO, "Tried to convert between the same currency.");
+        }else if (ex.getMessage().toUpperCase().contains("CONVERT")) {
+            model.addAttribute(ERROR_TYPE, ERROR_CONV_FAILED);
+            model.addAttribute(ERROR_INFO, "Cannot add conversion from the specified currency to the same currency.");
         } else {
             model.addAttribute(ERROR_TYPE, ERROR_GENERIC_TYPE);
             model.addAttribute(ERROR_INFO, ERROR_GENERIC_INFO);

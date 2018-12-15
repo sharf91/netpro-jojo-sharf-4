@@ -28,6 +28,8 @@ public class ConverterService {
     public ConversionRate getConversionRate(String fromCurrencyName, String toCurrencyName) throws IllegalConversionException {
         ConversionRate convRate = conversionRepo.findByFromCurrAndToCurr(fromCurrencyName, toCurrencyName);
         if (convRate == null) {
+            if(fromCurrencyName.equalsIgnoreCase(toCurrencyName))
+                throw new IllegalConversionException("Tried to convert between the same currency.");
             throw new IllegalConversionException("Conversion could not be found.");
         }
 

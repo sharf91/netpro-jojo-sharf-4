@@ -74,7 +74,7 @@ public class ConvController
     public String changeRate(@Valid AdminConvForm adminForm, BindingResult bindingResult, Model model)
             throws IllegalConversionException {
         if (bindingResult.hasErrors()) {
-            return CHANGE_RATES_URL;
+            return showAdminView(adminForm,model);
         }
 
         service.saveConversionRate(adminForm.getFromCurr(), adminForm.getToCurr(), adminForm.getRate());

@@ -30,7 +30,8 @@ public class ConverterService {
         if (convRate == null) {
             if(fromCurrencyName.equalsIgnoreCase(toCurrencyName))
                 throw new IllegalConversionException("Tried to convert between the same currency.");
-            throw new IllegalConversionException("Conversion could not be found.");
+            else
+                throw new IllegalConversionException("Conversion could not be found.");
         }
 
         ConversionCount convCount = countRepo.findByConvRate_Id(convRate.getId());

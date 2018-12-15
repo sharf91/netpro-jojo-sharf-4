@@ -46,6 +46,6 @@ public class ConvForm {
     @Override
     public String toString()
     {
-        return amount.toString(); //TODO this may be silly, Leif uses Util call
+        return amount.toString();
     }
 }

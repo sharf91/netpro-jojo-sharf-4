@@ -43,6 +43,6 @@ public class AdminConvForm {
     @Override
     public String toString()
     {
-        return rate.toString(); //TODO this may be silly, Leif uses Util call
+        return rate.toString();
     }
 }

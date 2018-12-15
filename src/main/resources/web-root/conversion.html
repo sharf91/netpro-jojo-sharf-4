@@ -6,9 +6,9 @@
 </head>
 <body>
 <p>Hello world! I'm alive. I wonder what is for lunch?</p>
-<form th:action="@{/do-conversion}" th:object="${convForm}" method="post">
+<form name = "Form" th:action="@{/do-conversion}" th:object="${convForm}" method="post">
     <label for="from-currency">From currency: </label>
-    <select name="From Currency" th:field="*{fromCurrency}" id="from-currency">
+    <select name="From" th:field="*{fromCurrency}" id="from-currency">
         <option value="SEK">SEK</option>
         <option value="USD">USD</option>
         <option value="EUR">EUR</option>
@@ -16,7 +16,7 @@
     </select>
 
     <label for="to-currency">To Currency: </label>
-    <select name="To Currency" th:field="*{toCurrency}" id="to-currency">
+    <select name="To" th:field="*{toCurrency}" id="to-currency">
         <option value="USD">USD</option>
         <option value="SEK">SEK</option>
         <option value="EUR">EUR</option>
@@ -24,9 +24,9 @@
     </select>
 
     <label for="amount">Amount: </label>
-    <input type="text" th:field="*{amount}" id="amount" />
+    <input name= "Amount" type="text" th:field="*{amount}" id="amount" />
 
-    <input type="submit" value="Do Conversion" />
+    <input type="submit" value="Do Conversion"/>
 
     <p>Result:
         <span th:text="${conversionRate?.getConvertedAmount(convForm.amount)}"></span>
